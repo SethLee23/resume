@@ -1,0 +1,44 @@
+
+    body{
+        background-color: grey;
+    }
+    #yin-yang {
+        width: 192px;
+        box-sizing: content-box;
+        height: 96px;
+        background: #eee;
+        border-color: black;
+        border-style: solid;
+        border-width: 4px 4px 100px 4px;
+        border-radius: 50%;
+        position: relative;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        display: inline-block;
+      }/*画一个圆，border为圆的下半部分*/
+      #yin-yang:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background: #eee;
+        border: 36px solid black;
+        border-radius: 100%;
+        width: 24px;
+        height: 24px;
+        box-sizing: content-box;
+      }/*通过绝对定位画太极里面的前半部分的球,大圆套小圆*/
+      #yin-yang:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: black;
+        border: 36px solid #eee;
+        border-radius: 100%;
+        width: 24px;
+        height: 24px;
+        box-sizing: content-box;
+      }/*后半部分的球*/
+  
