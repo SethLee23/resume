@@ -1,19 +1,16 @@
+
 body {
-    background-color: black;
-    color: white;
+    background-color: #EFEFEF;
+    color: black;
     margin: 0;
 }
 
-.topNavBar>nav{
+.topNavBar .nav{
     float:right;
 }
-.topNavBar>nav>ul>li {
+.topNavBar nav>ul>li {
     float: left;
     list-style: none;
-    font-size: 12px;
-    margin-left: 17px;
-    margin-right: 17px; 
-    font-weight: bold;
     padding-top: 2.5px;
     padding-bottom: 2.5px;  
 }
@@ -24,22 +21,26 @@ body {
     display: block;
 }
 
-.topNavBar>nav>ul>li>a {
+.topNavBar nav>ul>li>a {
     text-decoration: none;
     color: #b7b7b7;
     border-bottom: 3px solid transparent;
     padding: 5px 0px 5px 0px;
     display: block;
+    font-size: 12px;
+    margin-left: 17px;
+    margin-right: 17px; 
+    font-weight: bold;
 }
-.topNavBar>nav>ul>li>a:hover {
+.topNavBar nav>ul>li>a:hover {
 border-bottom: 3px solid #e06567;
 }
-.topNavBar>nav>ul{
+.topNavBar nav>ul{
     float:right;
     margin: 0;
     padding: 0;
 }
-.topNavBar>a{
+.topNavBar a{
     text-decoration: none;
     color: inherit;
     font-family: "Arial Black";
@@ -55,5 +56,123 @@ border-bottom: 3px solid #e06567;
     color: RGB(154,157,162);
 }
 .topNavBar{
-    padding: 29px 16px 29px 16px; 
+    padding: 29px 0px 29px 0px; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.banner{
+    background-image: url(./rs-cover.jpg);
+    background-position: center center;/*调整背景图片位置，实现水平垂直居中，
+    可以查一下其他属性*/
+    height:515px;
+    background-size: cover;/*调整自适应*/
+}
+.inner{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.banner .mask{
+    height: 515px;
+    background-color: rgba(0,0,0,0.8);/*設置蒙起來的層，加一個div，
+    設置背景顏色rgba（*，*，*，百分數）最後一個調整透明度*/
+}
+.usercard{
+    max-width: 940px;/*常用*/
+    margin-left: auto;
+    margin-right: auto;/*设置div水平居中*/
+    background-color: #FFFFFF;
+    color: black;
+}
+/*需要给图片切大小时可以直接在标签中加width和height*/
+.usercard .hello{
+    background-color: RGB(230,104,106);
+    color: white;
+    padding: 4px 10px;
+    line-height: 21px;/*防止不同弄机器上不一样*/
+    display: inline-block;/*hello的*/
+    position: relative;
+    margin-bottom: 27px;
+}
+.usercard .hello .triangle{
+    display: block;
+    position: absolute;/*绝对定位absolue的两步，position：
+    absolute，父元素position:relative*/
+    top: 100%;
+    left: 0px;
+    border:10px solid transparent;
+    width:0px;
+    height:0px;
+    /*border-top-color: black;用于测试*/
+    border-top-color: #E6686A;/*制作三角形，在一个div里面，设置span属性为block，并且设置他的
+    上一个span为inline-block*/
+    border-left-width:0px;
+}
+.usercard .picture{  
+    float: left;
+}
+.usercard .text{
+    float: left;
+    /*padding-left: 65px;都可以*/
+    margin-left: 65px;
+    width: 470px;/*由于加了float之后会出现缩进的效果，因此
+    需要给缩进的元素加上一个width*/
+}
+
+.usercard .textandpicture{
+    padding: 50px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}/*去除所有元素的margin和padding*/
+.usercard .text h1{
+    margin-bottom: 6px;
+}
+hr{
+    height: 0;
+    border-top: 1px solid #DEDEDE;/*将hr改为border，首先
+    令hr的border-width为0，然后设计样式*/
+}
+.usercard .text hr{
+    margin: 20px 0;
+}
+.usercard dl dt,
+.usercard dl dd{
+    float: left;
+}
+.usercard dl dt{
+    width: 30%;
+    padding: 5px 0px;
+    font-weight: bold;
+}
+.usercard dl dd{
+    width: 70%;
+    padding: 5px 0px;
+    color: #9da0a7;
+}/*此时刚好100%，那么一个dt和对应的dd就会刚好百分之百，自动换行*/
+.usercard .media{
+    background-color: #E6686A;
+    text-align: center;/*在父元素身上添加水平居中*/
+}
+.usercard .media a{
+color: inherit;
+text-decoration: none;
+border-radius: 50%;
+/*border: 1px solid transparent;用于测试背景圆框*/
+display: inline-block;
+line-height: 30px;
+width: 40px;
+padding: 5px 0;/*参考笔记中的居中法假设div中有个span，那么当div的行高足够大，且上下padding相等时就可以居中*/
+margin: 16px;
+}
+.usercard .media svg{
+    width: 30px;
+    height: 30px;
+    fill: white;/*调整svg颜色*/
+    vertical-align: top;/*调整logo垂直距离*/
+}
+.usercard .media a:hover{
+background-color:#CF5D5F;
 }
