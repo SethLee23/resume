@@ -1,7 +1,9 @@
+
 body {
     background-color: black;
-    color: white;
-    margin:0;
+    color: black;
+    margin: 0;
+    background-color:  #EFEFEF;
 }
 
 .clearfix::after {
@@ -9,18 +11,19 @@ body {
     content: '';
     display: block;
 }
-.topNavBar>nav{
-    float:right;
+
+.topNavBar nav {
+    float: right;
 }
 
-.topNavBar>nav>ul {
+.topNavBar nav>ul {
     list-style: none;
     margin: 0;
     padding: 0;
     float: left;
 }
 
-.topNavBar>nav>ul>li {
+.topNavBar nav>ul>li {
     float: left;
     margin-left: 17px;
     margin-right: 17px;
@@ -28,7 +31,7 @@ body {
     font-weight: bold;
 }
 
-.topNavBar>nav>ul>li>a {
+.topNavBar nav>ul>li>a {
     font-size: 12px;
     color: #b7b7b7;
     text-decoration: none;
@@ -41,7 +44,7 @@ body {
     padding-bottom: 5px;
 }
 
-.topNavBar>nav>ul>li>a:hover {
+.topNavBar nav>ul>li>a:hover {
     border-bottom: 3px solid #e06567;
 }
 
@@ -60,9 +63,309 @@ a {
 .CARD {
     color: #9A9DA2;
 }
+
 /*要对齐，首先补齐border-top,*/
-.topNavBar{
-    padding-top: 27px;
-    padding-left: 16px;
-    padding-right:16px;
+
+.topNavBar {
+    padding: 38px 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.banner {
+    background-image: url(./rs-cover.jpg);
+    height: 515px;
+    background-position: center center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.inner {
+    padding: 0 16px;
+}
+
+.banner .mask {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 515px;
+    background-size: cover;
+}
+
+/*以上遇到问题，图片居中，自适应大小，padding的问题*/
+
+.usercard {
+    max-width: 940px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+}
+
+.usercard .hello {
+    color: white;
+    background-color: #E6686A;
+    padding: 4px 16px;
+    display: inline-block;
+    /*为什么这么设置?确认行高总是忘记*/
+    line-height: 22px;
+    position: relative;
+}
+
+.usercard .triangle {
+    display: block;
+    border: 10px solid transparent;
+    width: 0px;
+    border-top-color: #E6686A;
+    border-left-width: 0px;
+    position: absolute;
+    top: 100%;
+    left: 4px;
+}
+.usercard .picture{
+    float: left;
+}
+.usercard .text{
+    float: left;
+    margin-left: 65px;
+    width: 470px;/*忘记写这个，踩了半天雷！！！！！*/
+}
+.usercard .textandpicture{
+    padding: 50px;
+}
+hr{
+    height: 0;
+    border: none;
+    border-top: 1px solid #DEDEDE;/*不懂hbb-t*/
+    margin: 20px 0;
+}
+/*
+.text dt{
+    float: left;
+    width: 30%;
+} 
+.text dd{
+    float: left;
+    width: 70%;
+}*/
+.usercard dl dt,
+.usercard dl dd{
+    float: left;
+}
+.usercard dl dt{
+    width: 30%;
+    padding: 5px 0px;
+    font-weight: bold;
+}
+.usercard dl dd{
+    width: 70%;
+    padding: 5px 0px;
+    color: #9da0a7;
+}
+.usercard h1{
+    font-weight: bold;
+    padding-top: 24px;
+    }
+.media{
+    background-color: #E6686A;
+    text-align: center;/*陷入迷茫，text-allign放在什么位置啊*/
+
+}
+.media>a{
+    width: 40px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    padding: 5px 0;
+    margin: 16px;
+    border-radius: 50%;
+}
+.media svg{
+    fill: white;
+    width: 30px;
+    height: 30px;
+    vertical-align: center;
+ 
+}
+.media>a:hover{
+    background-color: #CF5D5F;/*这个背算了，要想a标签
+    有一个圆边框，首先设置字体大小，画一个边框，然后在a标签
+    中将边框转化为圆，用line-heigh和padding设置居中，在设置垂直居中，
+    然后，在a中设置背景色为你需要的颜色，就是基本一切都在a中设置*/
+}
+main{
+    margin-top: -210px;
+}/*需要查一下怎么上浮？？？其他的方法，上移*/
+.download{
+    font-size: 14px;
+    display: inline-block;
+    padding: 21px 55px;
+    line-height: 16px;
+     border:1px solid #cdcfd1;
+     background: EFEFEF;
+     border-radius: 2px;
+     color: #3d4451;
+     font-weight: bold;
+     margin: 32px 0;
+     transition: box-shadow 0.1s;/*转换时间*/
+}
+.download-wrapper{
+    text-align: center;
+}
+.download:hover{
+    box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.5);
+}
+.self-introduction{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family:"楷体","楷体_GB2312";
+    line-height: 18px;
+    font-size: 18px;
+    margin-top: 18px;
+}
+.skills,
+section.portfolio{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+section.skills>h2,
+section.portfolio>h2
+{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-top: 55px;
+}
+ul,ol{
+    list-style: none;
+}
+section.skills>ol{
+    padding: 42px 50px 10px;
+    box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.5);
+
+}
+.progressbar{
+    height: 5px;
+    background-color:#FAE1E1;
+    border-radius: 2px;
+    margin-bottom: 40px;
+}
+.progressbar .progress{
+    height: 5px;/*也可以写成100%*/
+    width: 70%;
+    background-color: #e6686a;
+    border-radius: 2px;
+    margin: 4px 0;
+}
+/*以下为重点,怎么调整两行的间距，很简单，就是调整两列的百分比宽度，然后
+一个左浮，一个右浮，主要还是练习*/
+section.skills>ol>li{
+    float:left;
+    width: 48%;
+    box-sizing: border-box;/*好用的盒模型*/
+
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+section.skills>h2{
+margin-bottom: 30px;
+}
+section.skills>ol>li:nth-child(even){
+    float:right;/*选中偶数个儿子，odd是奇数*/
+}
+.portfolio>nav>ol>li{
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;/*改变成手*/
+}
+.portfolio>nav{
+    text-align: center;/*要想让li们居中，text-align必不可少*/
+}
+.portfolio>nav>ol{
+   /*以下为几个内联元素一起居中的方法：调为inline-block之后才可以调margin，此时会有基线对齐，那你
+   调整为vertical-align：top；既可以了，但是有一个问题，用了margin-left
+   之后，元素右移了，第一个元素也有margin，就要用到伪类大法了*/
+    
+    display: inline-block;
+    vertical-align: top;
+}
+.portfolio>nav>ol>li:nth-child(1){
+    margin-left: 0;
+}
+/*目前存在的问题：怎么内缩nav，因为nav和bar应该是一样宽的*/
+.portfolio>nav{
+display: inline-block;/*设置好就可以内缩,设置父元素为inline-block
+后就和孩子一样大*/
+vertical-align: top;
+margin-top: 28px;
+}
+/*添加状态栏，依旧是用两个div重合，由于bar太长，就要设置可以内缩,设置父元素为inline-block
+后就和孩子一样大，内缩好后就设置间距，bar-inner最好用百分比，然后
+就开始用js啦，厉害了*/
+/*第一步，设计好每个点击之后出现的情况：比如用绝对定位或者margin-left
+来实现进度条的右移，然后用width的百分比控制进度条大小*/
+.portfolio>nav .bar{
+    height:5px;
+    background-color: white;
+    margin-top: 5px;
+    border-radius: 6px;
+}
+
+.portfolio>nav .bar .bar-inner{
+    height: 100%;
+    background-color: #e6686a;
+    border-radius: 6px;
+    transition: all 0.3s; /*所有改变控制在0.3s内*/
+}
+.portfolio>nav .bar.state-3 .bar-inner{
+    height: 100%;
+    background-color: #e6686a;
+    width: 45%;
+    border-radius: 6px;
+    margin-left: 130px;
+}
+.portfolio>nav .bar.state-1 .bar-inner{
+    margin-left: 0px;
+    width: 18%;
+}
+.portfolio>nav .bar.state-2 .bar-inner{
+    margin-left: 50px;
+    width: 35%;
+}
+
+.portfolio{
+    text-align: center;/*为了设置nav中的li和bar居中*/
+}
+/*以下开始讲图片的定位,由于绝对定位后，文档流不知道自己应该多高，此时应该给个
+height*/
+section .jobs{
+    margin-top: 28px;
+    position: relative;
+    height: 597px;
+    border: 1px solid red;
+}
+section .jobs .big{
+position: absolute;
+top: 0;
+left: 0;
+}
+section .jobs .small1{
+position: absolute;
+top: 0;
+left: 646px;
+}
+section .jobs .small2{
+    position: absolute;
+    top: 312px;
+    left: 646px;
 }

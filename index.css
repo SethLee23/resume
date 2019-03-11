@@ -40,7 +40,7 @@ border-bottom: 3px solid #e06567;
     margin: 0;
     padding: 0;
 }
-.topNavBar a{
+.topNavBar .inner a{
     text-decoration: none;
     color: inherit;
     font-family: "Arial Black";
@@ -156,7 +156,7 @@ hr{
     background-color: #E6686A;
     text-align: center;/*在父元素身上添加水平居中*/
 }
-.usercard .media a{
+.usercard .media>a{
 color: inherit;
 text-decoration: none;
 border-radius: 50%;
@@ -173,6 +173,16 @@ margin: 16px;
     fill: white;/*调整svg颜色*/
     vertical-align: top;/*调整logo垂直距离*/
 }
-.usercard .media a:hover{
+.usercard .media>a:hover{
 background-color:#CF5D5F;
+}
+.download{
+    font-size: 14px;
+    display: inline-block;
+    padding: 21px 55px;
+    line-height: 16px;
+     border:1px solid black;
+}
+.download-wrapper{
+    text-align: center;
 }

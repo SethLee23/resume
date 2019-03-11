@@ -4,8 +4,9 @@
 <head>
 	<title>我的简历</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="./index.css">
-	<script src="//at.alicdn.com/t/font_1077678_9f8fxmt8lf.js"></script>
+	<link rel="stylesheet" type="text/css" href="./1.css">
+	<script src="//at.alicdn.com/t/font_1077678_9f8fxmt8lf.js">
+	</script>
 	<style type="text/css">
 		.icon {
 			width: 1em;
@@ -21,7 +22,7 @@
 	<div class="topNavBar">
 		<div class="inner  clearfix">
 			<a class="logo" href="" alt="logo" style="float:left">
-				<span class="RS">RS</span><span class="CARD">card</span>
+				<span class="RS">Re</span><span class="CARD">sume</span>
 			</a>
 			<nav class="clearfix">
 				<ul class="clearfix">
@@ -46,11 +47,11 @@
 					<img src="./avatar.jpg" alt="头像">
 				</div>
 				<div class="text">
-					<span class="hello">HELLO
+					<span class="hello">Hello
 						<span class="triangle"></span>
 					</span>
 					<h1>李思情</h1>
-					<h2>前端开发工程师</h2>
+					<p>前端开发工程师</p>
 					<hr>
 					<dl class="clearfix">
 						<dt>年龄</dt>
@@ -94,33 +95,86 @@
 				</a>
 			</footer>
 		</div>
-		<a href="#" class="button">下载PDF</a>
-		<p>李思情，喜爱前端。</p>
+		<p class="download-wrapper">
+			<a href="./resume.pdf" class="download" target="_blank" download="李思情简历">download</a>
+		</p>
+		<p class="self-introduction">李思情，喜爱前端。</p>
 	</main>
-	<section>
-		<h2>技能</h2>
-		<ol>
-			<li>HTML5 &amp; CSS3</li>
-			<li>Javascript</li>
-			<li>jQuery</li>
-			<li>Vue</li>
-			<li>React</li>
-			<li>HTTP</li>
+	<section class="skills">
+		<h2 style="text-align: center;">专业技能</h2>
+		<ol class="clearfix">
+			<li>
+				<h3>HTML5 &amp; CSS3</h3>
+				<div class="progressbar">
+					<div class="progress"></div>
+				</div>
+			</li>
+			<li>
+				<h3>Javascript</h3>
+				<div class="progressbar">
+					<div class="progress"></div>
+				</div>
+			</li>
+			<li>
+				<h3>jQuery</h3>
+				<div class="progressbar">
+					<div class="progress"></div>
+				</div>
+			</li>
+			<li>
+				<h3>Vue</h3>
+				<div class="progressbar">
+					<div class="progress"></div>
+				</div>
+			</li>
+			<li>
+				<h3>React</h3>
+				<div class="progressbar">
+					<div class="progress"></div>
+				</div>
+			</li>
+			<li>
+				<h3>HTTP</h3>
+				<div class="progressbar">
+					<div class="progress"></div>
+				</div>
+			</li>
 		</ol>
 	</section>
-	<section>
+	<section class="portfolio">
 		<h2>作品集</h2>
 		<nav>
-			<ol>
-				<li>所有</li>
-				<li>框架作品</li>
-				<li>原生JS &amp; CSS</li>
+			<ol class="clearfix">
+				<li id="portfolioAll">所有</li>
+				<li id="porforlioFramework">框架作品</li>
+				<li id="portforlioVallina">原生JS &amp; CSS</li>
 			</ol>
+		<div id="portfoliobar"class="bar state-1">
+			<div class="bar-inner"></div>
+		</div>
 		</nav>
+		<script>
+		portfolioAll.onclick= function(){
+			portfoliobar.className = 'bar state-1'
+		}
+		porforlioFramework.onclick= function(){
+			portfoliobar.className = 'bar state-2'
+		}
+        portforlioVallina.onclick= function(){
+			portfoliobar.className = 'bar state-3'
+		}
+		/*出现错误，修改几个位置，id名称，script中的引号，单词拼写错误*/
+		</script>
 		<div class="jobs">
-			<div class="big"></div>
-			<div class="small"></div>
-			<div class="small"></div>
+			<div class="big">
+				<img src="./resumepic/1.jpg" alt="作品1">
+			</div>
+			<div class="small1">
+				<img src="./resumepic/2.jpg" alt="作品1">
+			</div>
+			<div class="small2">
+				<img src="./resumepic/3.jpg" alt="作品1">
+			</div>
 		</div>
 	</section>
 </body>
