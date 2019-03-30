@@ -4,7 +4,7 @@
 <head>
 	<title>我的简历</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="./1.css">
+	<link rel="stylesheet" type="text/css" href="./practice.css">
 	<script src="//at.alicdn.com/t/font_1077678_9f8fxmt8lf.js">
 	</script>
 	<style type="text/css">
@@ -19,6 +19,9 @@
 </head>
 
 <body>
+	<div class="welcome active" id="welcome">
+		<div class="loading" id="loading"></div>
+	</div>
 
 	<div class="topNavBar" id="topNavBar">
 		<div class="inner  clearfix">
@@ -30,20 +33,20 @@
 					<li><a href="#siteAbout">关于</a></li>
 					<li><a href="#siteSkills">技能</a></li>
 					<li class="tiggerwrapper">
-						<a class="menutigger" href="#siteWorks">作品</a>
-						<ul class="submenu">
-							<li>作品1</li>
-							<li>作品2</li>
-							<li>作品3</li>
-						</ul>
+                        <a class="menutigger" href="#siteWorks">作品</a>
+                        <ul class="subMenu">
+                            <li>作品1</li>
+                            <li>作品2</li>
+                            <li>作品3</li>
+                        </ul>
 					</li>
 					<li class="tiggerwrapper">
-						<a class="menutigger" href="">博客</a>
-						<ul class="submenu">
-							<li>博客1</li>
-							<li>博客2</li>
-							<li>博客3</li>
-						</ul>
+                        <a class="menutigger" href="">博客</a>
+                        <ul class="subMenu">
+                            <li>博客1</li>
+                            <li>博客2</li>
+                            <li>博客3</li>
+                        </ul>
 					</li>
 					<li><a href="">日历</a></li>
 					<li><a href="">联系方式</a></li>
@@ -56,7 +59,7 @@
 		<div class="mask"></div>
 	</div>
 	<main>
-		<div data-x id="siteAbout" class="usercard">
+		<div id="siteAbout" class="usercard">
 			<div class="textandpicture clearfix">
 				<div class="picture">
 					<img src="./avatar.jpg" alt="头像">
@@ -116,7 +119,7 @@
 		</p>
 		<p class="self-introduction">李思情，喜爱前端。</p>
 	</main>
-	<section data-x id="siteSkills" class="skills">
+	<section id="siteSkills" class="skills">
 		<h1 style="text-align: center;">专业技能</h1>
 		<ol class="clearfix">
 			<li>
@@ -157,7 +160,7 @@
 			</li>
 		</ol>
 	</section>
-	<section data-x id="siteWorks" class="portfolio">
+	<section id="siteWorks" class="portfolio">
 		<h2>作品集</h2>
 		<nav>
 			<ol class="clearfix">
@@ -183,7 +186,7 @@
 
 		</script>
 		<div class="jobs">
-			<div  class="big">
+			<div class="big">
 				<img src="./resumepic/1.jpg" alt="作品1">
 			</div>
 			<div class="small1">
@@ -196,90 +199,24 @@
 	</section>
 
 </body>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js'></script>
 <script>
-
-	yyy()
-	let markTags = document.querySelectorAll('[data-x]')
-	for (i = 0; i < markTags.length; i++) {
-			markTags[i].classList.add('offset')
-	}
-	window.onscroll = function () {
-		if (window.scrollY > 0) {
-			topNavBar.classList.add('sticky')
-		} else {
-			topNavBar.classList.remove('sticky')
-		}
-		yyy()
-		}
-		function yyy(){
-			let markTags = document.querySelectorAll('[data-x]')//注意标记的写法
-		let minIndex = 0
-		let currentY = window.scrollY
-		for (i = 1; i < markTags.length; i++) {
-			if (Math.abs(markTags[i].offsetTop - currentY) < Math.abs(markTags[minIndex].offsetTop - currentY)) {
-				minIndex = i
-				
-			}
-	}
-	markTags[minIndex].classList.remove('offset')
-	
-
-        let id = markTags[minIndex].id
-		let a = document.querySelector('a[href = "#' + id + '"]')
-        let li = a.parentNode
-		let siblings = li.parentNode.children
-		for(i = 0; i<siblings.length;i++){
-			siblings[i].classList.remove('highlight')
-		}
-        li.classList.add('highlight')
-		}
-
-    
-	let liTags = document.getElementsByClassName('tiggerwrapper')
-	for (let i = 0; i < liTags.length; i++) {
-		liTags[i].onmouseenter = function (y) {
-			y.currentTarget.classList.add('active')
-		}
-		liTags[i].onmouseleave = function (y) {
-			y.currentTarget.classList.remove('active')
-		}
-	}
-	let aTags = document.querySelectorAll('nav > ul > li > a')//获取a
-	function animate(time) {
-		requestAnimationFrame(animate);
-		TWEEN.update(time);
-	}
-	requestAnimationFrame(animate);
-
-	for (let i = 0; i < aTags.length; i++) {
-		aTags[i].onclick = function (x) {//a被点击后获取目标href的元素距离顶部的距离
-			console.log(x)
-			x.preventDefault()
-			let a = x.currentTarget//获取被点击的a标签
-			let href = a.getAttribute('href')//获取#siteAbout,href中写的什么获取什么
-			let element = document.querySelector(href)//获取元素
-			let top = element.offsetTop//获取距离视口顶部的距离
-			//window.scrollTo(0,top - 80)//到视口顶部
-			let currentTop = window.scrollY
-			let targetTop = (top - 80)
-			s = targetTop - currentTop
-			t = Math.abs((s / 100) * 300)
-			if (t > 500) {
-				t = 500
-			}
-			console.log(t)
-			var coords = { y: currentTop }; // Start
-			var tween = new TWEEN.Tween(coords)
-				.to({ y: targetTop }, t) // Move to (targettop) in t ms.
-				.easing(TWEEN.Easing.Quadratic.InOut) // Use an easing function to make the animation smooth.
-				.onUpdate(function () { // Called after tween.js updates 'coords'.
-					window.scrollTo(0, coords.y)
-				})
-				.start(); // Start the tween immediately.
-		}
-	}
-
+setTimeout(function(){welcome.classList.remove('active')},1000)
+window.onscroll = function(){
+    if(scrollY > 0){
+        topNavBar.classList.add('sticky')
+    }else{
+        topNavBar.classList.remove('sticky')
+    }
+}
+var liTags = document.getElementsByClassName('tiggerwrapper')
+for(let i = 0; i < liTags.length; i++){
+    liTags[i].onmouseenter = function(x){
+        x.currentTarget.classList.add('active')
+    }
+    liTags[i].onmouseleave = function(x){
+        x.currentTarget.classList.remove('active')
+    }
+}
 
 
 </script>
