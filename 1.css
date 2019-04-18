@@ -1,4 +1,9 @@
 
+.swiper-container {
+    width: 668px;
+    height: 501px;
+}
+
 body {
     background-color: black;
     color: black;
@@ -371,7 +376,7 @@ section.portfolio>h2
     font-size: 34px;
     line-height: 1.2;
     font-weight: 600;
-    margin-top: 55px;
+    margin-top: 60px;
 }
 section.skills>h1{
     margin-bottom: 12px;
@@ -416,7 +421,10 @@ h1,h2,h3,h4,h5,h6{
     font-weight: normal;
 }
 section.skills>h2{
-margin-bottom: 30px;
+margin-bottom: 10px;
+}
+section.portfolio>h2 {
+    margin-bottom: 15px;
 }
 section.skills>ol>li:nth-child(even){
     float:right;/*选中偶数个儿子，odd是奇数*/
@@ -440,70 +448,24 @@ section.skills>ol>li:nth-child(even){
 .portfolio>nav>ol>li:nth-child(1){
     margin-left: 0;
 }
-/*目前存在的问题：怎么内缩nav，因为nav和bar应该是一样宽的*/
-.portfolio>nav{
-display: inline-block;/*设置好就可以内缩,设置父元素为inline-block
-后就和孩子一样大*/
-vertical-align: top;
-margin-top: 28px;
-}
-/*添加状态栏，依旧是用两个div重合，由于bar太长，就要设置可以内缩,设置父元素为inline-block
-后就和孩子一样大，内缩好后就设置间距，bar-inner最好用百分比，然后
-就开始用js啦，厉害了*/
-/*第一步，设计好每个点击之后出现的情况：比如用绝对定位或者margin-left
-来实现进度条的右移，然后用width的百分比控制进度条大小*/
-.portfolio>nav .bar{
-    height:5px;
-    background-color: white;
-    margin-top: 5px;
-    border-radius: 6px;
-}
 
-.portfolio>nav .bar .bar-inner{
-    height: 100%;
-    background-color: #e6686a;
-    border-radius: 6px;
-    transition: all 0.3s; /*所有改变控制在0.3s内*/
-}
-.portfolio>nav .bar.state-3 .bar-inner{
-    height: 100%;
-    background-color: #e6686a;
-    width: 45%;
-    border-radius: 6px;
-    margin-left: 130px;
-}
-.portfolio>nav .bar.state-1 .bar-inner{
-    margin-left: 0px;
-    width: 18%;
-}
-.portfolio>nav .bar.state-2 .bar-inner{
-    margin-left: 50px;
-    width: 35%;
-}
-
-.portfolio{
-    text-align: center;/*为了设置nav中的li和bar居中*/
-}
 /*以下开始讲图片的定位,由于绝对定位后，文档流不知道自己应该多高，此时应该给个
 height*/
-section .jobs{
-    margin-top: 28px;
-    position: relative;
-    height: 597px;
-   
+section.portfolio {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
 }
-section .jobs .big{
-position: absolute;
-top: 0;
-left: 0;
+section.portfolio .swiper-button-prev,section.portfolio .swiper-button-next{
+    background-color: white;
+    width: 64px;
+    height: 64px;
+    right: 100%;
+    left: auto;
+    border-radius: 50%;
+    border: none;
 }
-section .jobs .small1{
-position: absolute;
-top: 0;
-left: 646px;
-}
-section .jobs .small2{
-    position: absolute;
-    top: 312px;
-    left: 646px;
+section.portfolio .swiper-button-next{
+    left: 100%;
+    right: auto;
 }
