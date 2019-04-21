@@ -57,7 +57,7 @@
 		<div class="mask"></div>
 	</div>
 	<main>
-		
+
 		<div data-x id="siteAbout" class="usercard">
 			<div class="textandpicture clearfix">
 				<div class="picture">
@@ -161,133 +161,48 @@
 	</section>
 	<section data-x id="siteWorks" class="portfolio">
 		<h2>作品集</h2>
+
 		<!-- Slider main container -->
-		<div class="myslides">
-<div class="swiper-container">
-		<!-- Additional required wrapper -->
-		<div class="swiper-wrapper">
-			<!-- Slides -->
-			<img src="./resumepic/apple-style-slides.jpg" class="swiper-slide">
-			<img src="./resumepic/canvas.jpg" class="swiper-slide">
-			<img src="./resumepic/nav-page.jpg" class="swiper-slide">
+		<!--這裡的myslides就是我的view-->
+		<div id ="myslides">
+			<div class="swiper-container">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
+					<!-- Slides -->
+					<img src="./resumepic/apple-style-slides.jpg" class="swiper-slide">
+					<img src="./resumepic/canvas.jpg" class="swiper-slide">
+					<img src="./resumepic/nav-page.jpg" class="swiper-slide">
+				</div>
+				<!-- If we need pagination -->
+				<div class="swiper-pagination"></div>
+
+
+			</div>
+			<!-- If we need navigation buttons -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
 		</div>
-		<!-- If we need pagination -->
-		<div class="swiper-pagination"></div>
-	
-		
-</div>
-<!-- If we need navigation buttons -->
-<div class="swiper-button-prev"></div>
-<div class="swiper-button-next"></div>
-</div>
 	</section>
 
+<div id ="messageBox">
+	<h2>留言板</h2>
+	<ol id = "messageList"></ol>
+	<form id ="myForm" action="" method="POST">
+		<label for="">姓名</label>
+		<input type="text" name="name">
+		<label for="">内容</label>
+		<input type="text" name="content">
+		<input type="submit" name="提交">
+	</form>
+<div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js'></script>
-<script>
-		var mySwiper = new Swiper ('.swiper-container', {
-		  // Optional parameters
-		  loop: true,
-	  
-		  // If we need pagination
-		  pagination: {
-			el: '.swiper-pagination',
-		  },
-	  
-		  // Navigation arrows
-		  navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		  },
-		})
-		</script>
-		
-<script>
-
-	yyy()
-	let markTags = document.querySelectorAll('[data-x]')
-	for (i = 0; i < markTags.length; i++) {
-			markTags[i].classList.add('offset')
-	}
-	window.onscroll = function () {
-		if (window.scrollY > 0) {
-			topNavBar.classList.add('sticky')
-		} else {
-			topNavBar.classList.remove('sticky')
-		}
-		yyy()
-		}
-		function yyy(){
-			let markTags = document.querySelectorAll('[data-x]')//注意标记的写法
-		let minIndex = 0
-		let currentY = window.scrollY
-		for (i = 1; i < markTags.length; i++) {
-			if (Math.abs(markTags[i].offsetTop - currentY) < Math.abs(markTags[minIndex].offsetTop - currentY)) {
-				minIndex = i
-				
-			}
-	}
-	markTags[minIndex].classList.remove('offset')
-	
-
-        let id = markTags[minIndex].id
-		let a = document.querySelector('a[href = "#' + id + '"]')
-        let li = a.parentNode
-		let siblings = li.parentNode.children
-		for(i = 0; i<siblings.length;i++){
-			siblings[i].classList.remove('highlight')
-		}
-        li.classList.add('highlight')
-		}
-
-    
-	let liTags = document.getElementsByClassName('tiggerwrapper')
-	for (let i = 0; i < liTags.length; i++) {
-		liTags[i].onmouseenter = function (y) {
-			y.currentTarget.classList.add('active')
-		}
-		liTags[i].onmouseleave = function (y) {
-			y.currentTarget.classList.remove('active')
-		}
-	}
-	let aTags = document.querySelectorAll('nav > ul > li > a')//获取a
-	function animate(time) {
-		requestAnimationFrame(animate);
-		TWEEN.update(time);
-	}
-	requestAnimationFrame(animate);
-
-	for (let i = 0; i < aTags.length; i++) {
-		aTags[i].onclick = function (x) {//a被点击后获取目标href的元素距离顶部的距离
-			console.log(x)
-			x.preventDefault()
-			let a = x.currentTarget//获取被点击的a标签
-			let href = a.getAttribute('href')//获取#siteAbout,href中写的什么获取什么
-			let element = document.querySelector(href)//获取元素
-			let top = element.offsetTop//获取距离视口顶部的距离
-			//window.scrollTo(0,top - 80)//到视口顶部
-			let currentTop = window.scrollY
-			let targetTop = (top - 80)
-			s = targetTop - currentTop
-			t = Math.abs((s / 100) * 300)
-			if (t > 500) {
-				t = 500
-			}
-			console.log(t)
-			var coords = { y: currentTop }; // Start
-			var tween = new TWEEN.Tween(coords)
-				.to({ y: targetTop }, t) // Move to (targettop) in t ms.
-				.easing(TWEEN.Easing.Quadratic.InOut) // Use an easing function to make the animation smooth.
-				.onUpdate(function () { // Called after tween.js updates 'coords'.
-					window.scrollTo(0, coords.y)
-				})
-				.start(); // Start the tween immediately.
-		}
-	}
-
-
-
-</script>
-
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script>
+<script src="./js/init-swiper.js"></script>
+<script src="./js/auto-slide-up.js"></script>
+<script src="./js/sticky-nav-bar.js"></script>
+<script src="./js/smooth-navigation.js"></script>
+<script src="./js/hover-sup-menu.js"></script>
+<script src="./js/message.js"></script>
 </html>

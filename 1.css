@@ -1,4 +1,3 @@
-
 .swiper-container {
     width: 668px;
     height: 501px;
@@ -8,18 +7,27 @@ body {
     background-color: black;
     color: black;
     margin: 0;
-    background-color:  #EFEFEF;
-    cursor:pointer;
+    background-color: #EFEFEF;
+    cursor: pointer;
 }
-[data-x].active{
+
+[data-x].active {
     outline: 5px solid red;
 }
-[data-x].offset{
+
+[data-x].offset {
     transform: translateY(100px);
     transition: all 0.3s linear;
 }
 
-.welcome.active{
+/*忘记还原！*/
+
+[data-x] {
+    transform: translateY(0);
+    transition: all 0.3s linear;
+}
+
+.welcome.active {
     height: 100%;
     width: 100%;
     display: flex;
@@ -31,45 +39,49 @@ body {
     left: 0;
     z-index: 1;
 }
-.welcome{
-    display: none;
 
-} 
-.loading{
-    width:300px;
-    height:300px;
+.welcome {
+    display: none;
+}
+
+.loading {
+    width: 300px;
+    height: 300px;
     position: relative;
-  }
-  .loading::before,.loading::after{
+}
+
+.loading::before, .loading::after {
     content: "";
-    width:10px;
-    height:10px;
-    background:black;
+    width: 10px;
+    height: 10px;
+    background: black;
     border-radius: 50%;
     position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    margin:auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     animation: s 1.5s linear infinite;
-  } 
-  .loading::after{
-    content:"";
+}
+
+.loading::after {
+    content: "";
     animation-delay: 0.75s;
-  }
-  @keyframes s{
-    0%
-    {width:0px;
-    height:0px;
-    opacity: 1;
+}
+
+@keyframes s {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 1;
     }
-    100%{
-      width:100px;
-      height:100px;
-      opacity: 0;
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
     }
-  }
+}
 
 .clearfix::after {
     clear: both;
@@ -80,12 +92,15 @@ body {
 .topNavBar nav {
     float: right;
 }
-.topNavBar{
+
+.topNavBar {
     color: #b7b7b7;
 }
-.topNavBar.sticky{
-    background: rgba(255,255,255,0.8);
-    padding: 10px;/*修改*/
+
+.topNavBar.sticky {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    /*修改*/
     z-index: 2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     color: #3d4451;
@@ -105,34 +120,39 @@ body {
     font-size: 12px;
     font-weight: bold;
     position: relative;
-    
 }
-.topNavBar nav>ul>li .submenu{
-    display: none;
-    
 
+.topNavBar nav>ul>li .submenu {
+    display: none;
 }
-.topNavBar nav>ul>li.active .submenu{
+
+.topNavBar nav>ul>li.active .submenu {
     display: block;
-    position: absolute;/*由于父元素宽度发生变化*/
-    top:100%;
+    position: absolute;
+    /*由于父元素宽度发生变化*/
+    top: 100%;
     right: 0;
     white-space: nowrap;
     background: white;
     color: #3d4451;
     animation: submenu 0.3s;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes submenu{
-    0%{margin-right: 100%}
-    100%{margin-right: 0}
+@keyframes submenu {
+    0% {
+        margin-right: 100%
+    }
+    100% {
+        margin-right: 0
+    }
 }
 
-.topNavBar nav>ul>li .submenu > li{
+.topNavBar nav>ul>li .submenu>li {
     white-space: nowrap;
     padding: 10px;
 }
+
 .topNavBar nav>ul>li>a {
     font-size: 12px;
     text-decoration: none;
@@ -140,28 +160,26 @@ body {
     border-bottom: 3px solid transparent;
     background-color: transparent;
     display: block;
-   /* border-top: 3px solid transparent;*/
+    /* border-top: 3px solid transparent;*/
     padding-top: 5px;
     padding-bottom: 5px;
     color: inherit;
     position: relative;
 }
 
-.topNavBar nav>ul>li.active>a::after,
-.topNavBar nav>ul>li.highlight>a::after {
+.topNavBar nav>ul>li.active>a::after, .topNavBar nav>ul>li.highlight>a::after {
     /*border-bottom: 3px solid #e06567;*/
     content: '';
     display: block;
     width: 100%;
     height: 3px;
-    background: #e06567;/*第一部分、注意不是color*/
+    background: #e06567;
+    /*第一部分、注意不是color*/
     position: absolute;
     top: 100%;
     left: 0;
-    animation:  menuSlide 0.3s linear;
+    animation: menuSlide 0.3s linear;
 }
-
-
 
 .topNavBar nav>ul>li>a:hover::after {
     /*border-bottom: 3px solid #e06567;*/
@@ -169,16 +187,23 @@ body {
     display: block;
     width: 100%;
     height: 3px;
-    background: #e06567;/*第一部分、注意不是color*/
+    background: #e06567;
+    /*第一部分、注意不是color*/
     position: absolute;
     top: 100%;
     left: 0;
-    animation:  menuSlide 0.3s linear;
+    animation: menuSlide 0.3s linear;
 }
+
 /*加关键帧*/
-@keyframes menuSlide{
- 0%{width: 0%;}  
- 100%{width: 100%;}
+
+@keyframes menuSlide {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
 }
 
 a {
@@ -235,7 +260,7 @@ a {
     background-color: white;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .usercard .hello {
@@ -258,23 +283,30 @@ a {
     top: 100%;
     left: 4px;
 }
-.usercard .picture{
+
+.usercard .picture {
     float: left;
 }
-.usercard .text{
+
+.usercard .text {
     float: left;
     margin-left: 65px;
-    width: 470px;/*忘记写这个，踩了半天雷！！！！！*/
+    width: 470px;
+    /*忘记写这个，踩了半天雷！！！！！*/
 }
-.usercard .textandpicture{
+
+.usercard .textandpicture {
     padding: 50px;
 }
-hr{
+
+hr {
     height: 0;
     border: none;
-    border-top: 1px solid #DEDEDE;/*不懂hbb-t*/
+    border-top: 1px solid #DEDEDE;
+    /*不懂hbb-t*/
     margin: 20px 0;
 }
+
 /*
 .text dt{
     float: left;
@@ -284,30 +316,35 @@ hr{
     float: left;
     width: 70%;
 }*/
-.usercard dl dt,
-.usercard dl dd{
+
+.usercard dl dt, .usercard dl dd {
     float: left;
 }
-.usercard dl dt{
+
+.usercard dl dt {
     width: 30%;
     padding: 5px 0px;
     font-weight: bold;
 }
-.usercard dl dd{
+
+.usercard dl dd {
     width: 70%;
     padding: 5px 0px;
     color: #9da0a7;
 }
-.usercard h1{
+
+.usercard h1 {
     font-weight: bold;
     padding-top: 24px;
-    }
-.media{
-    background-color: #E6686A;
-    text-align: center;/*陷入迷茫，text-allign放在什么位置啊*/
-
 }
-.media>a{
+
+.media {
+    background-color: #E6686A;
+    text-align: center;
+    /*陷入迷茫，text-allign放在什么位置啊*/
+}
+
+.media>a {
     width: 40px;
     line-height: 30px;
     text-align: center;
@@ -316,61 +353,69 @@ hr{
     margin: 16px;
     border-radius: 50%;
 }
-.media svg{
+
+.media svg {
     fill: white;
     width: 30px;
     height: 30px;
     vertical-align: center;
- 
 }
-.media>a:hover{
-    background-color: #CF5D5F;/*这个背算了，要想a标签
+
+.media>a:hover {
+    background-color: #CF5D5F;
+    /*这个背算了，要想a标签
     有一个圆边框，首先设置字体大小，画一个边框，然后在a标签
     中将边框转化为圆，用line-heigh和padding设置居中，在设置垂直居中，
     然后，在a中设置背景色为你需要的颜色，就是基本一切都在a中设置*/
 }
-main{
+
+main {
     margin-top: -280px;
-}/*需要查一下怎么上浮？？？其他的方法，上移*/
-.download{
+}
+
+/*需要查一下怎么上浮？？？其他的方法，上移*/
+
+.download {
     font-size: 14px;
     display: inline-block;
     padding: 21px 55px;
     line-height: 16px;
-     border:1px solid #cdcfd1;
-     background: EFEFEF;
-     border-radius: 2px;
-     color: #3d4451;
-     font-weight: bold;
-     margin: 32px 0;
-     transition: box-shadow 0.1s;/*转换时间*/
+    border: 1px solid #cdcfd1;
+    background: EFEFEF;
+    border-radius: 2px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0;
+    transition: box-shadow 0.1s;
+    /*转换时间*/
 }
-.download-wrapper{
+
+.download-wrapper {
     text-align: center;
 }
-.download:hover{
-    box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.5);
+
+.download:hover {
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.5);
 }
-.self-introduction{
+
+.self-introduction {
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-family:"楷体","楷体_GB2312";
+    font-family: "楷体", "楷体_GB2312";
     line-height: 18px;
     font-size: 18px;
     margin-top: 18px;
 }
-.skills,
-section.portfolio{
+
+.skills, section.portfolio {
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
-    
 }
-section.skills>h1,
-section.portfolio>h2
-{
+
+section.skills>h1, section.portfolio>h2,#messageBox>h2 {
     text-align: center;
     color: #3d4451;
     font-size: 34px;
@@ -378,85 +423,103 @@ section.portfolio>h2
     font-weight: 600;
     margin-top: 60px;
 }
-section.skills>h1{
+
+section.skills>h1 {
     margin-bottom: 12px;
 }
-ul,ol{
+
+ul, ol {
     list-style: none;
 }
-section.skills>ol{
-    padding: 42px 50px 10px;
-    box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.5);
 
+section.skills>ol {
+    padding: 42px 50px 10px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.5);
 }
-.progressbar{
+
+.progressbar {
     height: 5px;
-    background-color:#FAE1E1;
+    background-color: #FAE1E1;
     border-radius: 2px;
     margin: 4px 0 40px;
-    
     overflow: hidden;
 }
-section.skills.offset .progress{
+
+section.skills.offset .progress {
     transform: translateX(-100%);
-    
 }
-.progressbar .progress{
-    height: 100%;/*也可以写成100%*/
+
+.progressbar .progress {
+    height: 100%;
+    /*也可以写成100%*/
     width: 70%;
     background-color: #e6686a;
     border-radius: 2px;
     transform: translateX(0);
     transition: all 0.3s;
 }
+
 /*以下为重点,怎么调整两行的间距，很简单，就是调整两列的百分比宽度，然后
 一个左浮，一个右浮，主要还是练习*/
-section.skills>ol>li{
-    float:left;
-    width: 48%;
-    box-sizing: border-box;/*好用的盒模型*/
 
+section.skills>ol>li {
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+    /*好用的盒模型*/
 }
-h1,h2,h3,h4,h5,h6{
+
+h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
 }
-section.skills>h2{
-margin-bottom: 10px;
+
+section.skills>h2 {
+    margin-bottom: 10px;
 }
+
 section.portfolio>h2 {
     margin-bottom: 15px;
 }
-section.skills>ol>li:nth-child(even){
-    float:right;/*选中偶数个儿子，odd是奇数*/
+
+section.skills>ol>li:nth-child(even) {
+    float: right;
+    /*选中偶数个儿子，odd是奇数*/
 }
-.portfolio>nav>ol>li{
+
+.portfolio>nav>ol>li {
     float: left;
     margin-left: 20px;
-    cursor: pointer;/*改变成手*/
+    cursor: pointer;
+    /*改变成手*/
 }
-.portfolio>nav{
-    text-align: center;/*要想让li们居中，text-align必不可少*/
+
+.portfolio>nav {
+    text-align: center;
+    /*要想让li们居中，text-align必不可少*/
 }
-.portfolio>nav>ol{
-   /*以下为几个内联元素一起居中的方法：调为inline-block之后才可以调margin，此时会有基线对齐，那你
+
+.portfolio>nav>ol {
+    /*以下为几个内联元素一起居中的方法：调为inline-block之后才可以调margin，此时会有基线对齐，那你
    调整为vertical-align：top；既可以了，但是有一个问题，用了margin-left
    之后，元素右移了，第一个元素也有margin，就要用到伪类大法了*/
-    
     display: inline-block;
     vertical-align: top;
 }
-.portfolio>nav>ol>li:nth-child(1){
+
+.portfolio>nav>ol>li:nth-child(1) {
     margin-left: 0;
 }
 
 /*以下开始讲图片的定位,由于绝对定位后，文档流不知道自己应该多高，此时应该给个
 height*/
+
 section.portfolio {
     max-width: 760px;
     margin-left: auto;
     margin-right: auto;
 }
-section.portfolio .swiper-button-prev,section.portfolio .swiper-button-next{
+
+section.portfolio .swiper-button-prev, section.portfolio .swiper-button-next {
     background-color: white;
     width: 64px;
     height: 64px;
@@ -465,7 +528,26 @@ section.portfolio .swiper-button-prev,section.portfolio .swiper-button-next{
     border-radius: 50%;
     border: none;
 }
-section.portfolio .swiper-button-next{
+
+section.portfolio .swiper-button-next {
     left: 100%;
     right: auto;
+}
+#messageBox{
+    margin: 120px auto;
+    max-width: 700px;
+}
+ol#messageList{
+    display: flex; 
+    max-width: 700px;
+    margin: 0 auto;
+    justify-content: flex-start;
+    flex-direction: column;
+    background: #F4F4F4;
+    border-top:1px solid #DDD;
+
+}
+ol#messageList>li{
+    padding: 16px;
+    border-bottom: 1px solid #DDD;
 }
