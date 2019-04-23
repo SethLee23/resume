@@ -1,7 +1,7 @@
 
 
 !function () {
-    var view = document.querySelector('nav')
+    var view = View('nav')
     var controller = {
         view: null,
         init: function (view) {

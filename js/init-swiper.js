@@ -1,6 +1,6 @@
 !function () {
     //在對應的view來尋找
-    var view = document.querySelector('#myslides')
+    var view = View('#myslides')
     var controller = {
         view: null,
         swiper: null,
