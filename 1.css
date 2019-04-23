@@ -415,7 +415,7 @@ main {
     margin-right: auto;
 }
 
-section.skills>h1, section.portfolio>h2,#messageBox>h2 {
+section.skills>h1, section.portfolio>h2, #messageBox>h2 {
     text-align: center;
     color: #3d4451;
     font-size: 34px;
@@ -533,21 +533,46 @@ section.portfolio .swiper-button-next {
     left: 100%;
     right: auto;
 }
-#messageBox{
+
+#messageBox {
     margin: 120px auto;
     max-width: 700px;
 }
-ol#messageList{
-    display: flex; 
+
+ol#messageList {
+    display: flex;
     max-width: 700px;
     margin: 0 auto;
     justify-content: flex-start;
     flex-direction: column;
     background: #F4F4F4;
-    border-top:1px solid #DDD;
-
+    border-top: 1px solid #DDD;
 }
-ol#messageList>li{
+
+ol#messageList>li {
     padding: 16px;
     border-bottom: 1px solid #DDD;
+}
+
+/*表单验证*/
+
+input[name="name"], input[name="content"] {
+    border: 1px solid #333;
+    margin: 0;
+    font-family: inherit;
+    font-size: 90%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[name="name"]:invalid, input[name="content"]:invalid {
+    box-shadow: 0 0 5px 1px red;
+}
+
+input[name="name"]:focus:invalid, input[name="content"]:focus:invalid {
+    outline: none;
+}
+
+input[name="name"]:valid, input[name="content"]:valid {
+    border: 2px solid black;
 }
